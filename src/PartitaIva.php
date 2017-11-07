@@ -37,6 +37,7 @@ class PartitaIva
     */
     public function setPartitaIva($partitaIva)
     {
+        $this->setIsValid(false);
         $this->partitaIva = $partitaIva;
 		$this->check();
 		return $this;
@@ -82,8 +83,7 @@ class PartitaIva
      * @return void 
      */
     private function check()
-    {
-    	$this->setIsValid(false); 
+    {    	
     	$partitaIva = $this->getPartitaIva();
     	if ($partitaIva === "" || strlen($partitaIva) != 11 || (preg_match("/^[0-9]+\$/", $partitaIva) != 1)) {
     		$valid = false; 
@@ -98,7 +98,6 @@ class PartitaIva
 				if ($c > 9) {
 					$c = $c - 9;
 				}
-
 				$s += $c;
 			}
 
@@ -113,8 +112,7 @@ class PartitaIva
 			if (!isset($valid)) {
 				$valid = false;
 			}
-    	}  
-
+    	}
     	$this->setIsValid($valid); 
     }
 }
