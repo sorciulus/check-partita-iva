@@ -1,6 +1,7 @@
 {
     "name": "sorciulus/check-partita-iva",
-    "description": "Controllo formale partita iva",
+    "description": "Libraries for the formal control of the Italian VAT ID ",
+    "keywords": ["php", "vat", "partitaiva", "formal", "control"],
     "type": "library",
     "require": {
         "php": ">=7.0"
