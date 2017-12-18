@@ -78,7 +78,7 @@ class PartitaIva
     }
 
     /**
-     * check partita iva format are correct
+     * check if partita iva format is correct
      * 
      * @return void 
      */
@@ -105,12 +105,12 @@ class PartitaIva
                 $valid = false;
             }
 
-            if (preg_match("/^0([0-9][1-9]|[1-9][0-9])|100|120|121|888|999/",substr($partitaIva,7,3))) {
-                $valid = true;
+            if (!preg_match("/^0([0-9][1-9]|[1-9][0-9])|100|120|121|888|999/",substr($partitaIva,7,3))) {
+                $valid = false;
             }
 
             if (!isset($valid)) {
-                $valid = false;
+                $valid = true;
             }
         }
         $this->setIsValid($valid); 
